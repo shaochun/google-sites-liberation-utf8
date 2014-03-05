@@ -50,18 +50,18 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Implements {@link PageExporter} to export a single page in a 
- * Site as to a given {@code Appendable}. 
- * 
+ * Implements {@link PageExporter} to export a single page in a
+ * Site as to a given {@code Appendable}.
+ *
  * @author bsimon@google.com (Benjamin Simon)
  */
 final class PageExporterImpl implements PageExporter {
-  
+
   private static final Comparator<BaseContentEntry<?>> updatedComparator =
       EntryUtils.getReverseUpdatedComparator();
   private static final Comparator<BaseContentEntry<?>> titleComparator =
       EntryUtils.getTitleComparator();
-  
+
   private AncestorLinksRenderer ancestorLinksRenderer;
   private AnnouncementsRenderer announcementsRenderer;
   private AttachmentsRenderer attachmentsRenderer;
@@ -71,7 +71,7 @@ final class PageExporterImpl implements PageExporter {
   private ListRenderer listRenderer;
   private SubpageLinksRenderer subpageLinksRenderer;
   private TitleRenderer titleRenderer;
-  
+
   @Inject
   PageExporterImpl(
       AncestorLinksRenderer ancestorLinksRenderer,
@@ -93,7 +93,7 @@ final class PageExporterImpl implements PageExporter {
     this.subpageLinksRenderer = checkNotNull(subpageLinksRenderer);
     this.titleRenderer = checkNotNull(titleRenderer);
   }
-  
+
   @Override
   public void exportPage(BasePageEntry<?> entry, EntryStore entryStore,
       Appendable out, boolean revisionsExported) throws IOException {
@@ -118,10 +118,11 @@ final class PageExporterImpl implements PageExporter {
     mainDiv.setAttribute("id", entry.getId());
     if (entryStore.getParent(entry.getId()) != null) {
       List<BasePageEntry<?>> ancestors = getAncestors(entry, entryStore);
-      mainDiv.addElement(ancestorLinksRenderer.renderAncestorLinks(ancestors));      
+      mainDiv.addElement(ancestorLinksRenderer.renderAncestorLinks(ancestors));
     }
     mainDiv.addElement(titleRenderer.renderTitle(entry));
-    mainDiv.addElement(contentRenderer.renderContent(entry, revisionsExported));
+
+    //----------------------------------------------------------------
     List<AnnouncementEntry> announcements = Lists.newArrayList();
     List<BaseContentEntry<?>> attachments = Lists.newArrayList();
     List<CommentEntry> comments = Lists.newArrayList();
@@ -158,6 +159,18 @@ final class PageExporterImpl implements PageExporter {
     Collections.sort(comments, updatedComparator);
     Collections.sort(listItems, updatedComparator);
     Collections.sort(subpages, titleComparator);
+
+    //----------------------------------------------------------------
+    if (!subpages.isEmpty()) {
+      mainDiv.addElement(subpageLinksRenderer.renderSubpageLinks(subpages));
+      mainDiv.addElement(new XmlElement("hr"));
+      mainDiv.addElement(new XmlElement("br"));
+    }
+
+    //----------------------------------------------------------------
+    mainDiv.addElement(contentRenderer.renderContent(entry, revisionsExported));
+
+    //----------------------------------------------------------------
     if (getType(entry) == ANNOUNCEMENTS_PAGE) {
       mainDiv.addElement(announcementsRenderer
           .renderAnnouncements(announcements));
@@ -169,10 +182,12 @@ final class PageExporterImpl implements PageExporter {
       mainDiv.addElement(listRenderer.renderList(
           (ListPageEntry) (BaseContentEntry) entry, listItems));
     }
-    if (!subpages.isEmpty()) {
+
+    /*if (!subpages.isEmpty()) {
       mainDiv.addElement(new XmlElement("hr"));
       mainDiv.addElement(subpageLinksRenderer.renderSubpageLinks(subpages));
-    }
+    }*/
+
     if (!attachments.isEmpty() && getType(entry) != FILE_CABINET_PAGE) {
       mainDiv.addElement(new XmlElement("hr"));
       mainDiv.addElement(attachmentsRenderer.renderAttachments(attachments));
@@ -185,7 +200,7 @@ final class PageExporterImpl implements PageExporter {
     html.addElement(body.addElement(table.addElement(row)));
     html.appendTo(out);
   }
-  
+
   private XmlElement getSideBar(BasePageEntry<?> entry, EntryStore entryStore) {
     XmlElement table = new XmlElement("table");
     table.addElement(new XmlElement("tr").addElement(new XmlElement("th")
@@ -208,7 +223,7 @@ final class PageExporterImpl implements PageExporter {
     }
     return table;
   }
-  
+
   private String getPathToRoot(BasePageEntry<?> entry, EntryStore entryStore) {
     BasePageEntry<?> parent = entryStore.getParent(entry.getId());
     if (parent == null) {
@@ -216,7 +231,7 @@ final class PageExporterImpl implements PageExporter {
     }
     return getPathToRoot(parent, entryStore) + "../";
   }
-  
+
   private List<BasePageEntry<?>> getAncestors(BasePageEntry<?> entry,
       EntryStore entryStore) {
     BasePageEntry<?> parent = entryStore.getParent(entry.getId());
