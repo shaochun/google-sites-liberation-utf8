@@ -1,0 +1,43 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="google-sites-liberation:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/google_sites_liberation_jar</output-path>
+    <root id="archive" name="google-sites-liberation.jar">
+      <element id="module-output" name="google-sites-liberation" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/inject/guice/1.0/guice-1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: com.google.gdata:gdata-media:1.0" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/mail/mail/1.4.1/mail-1.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/repository/com/google/gdata/gdata-client/1.0/gdata-client-1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/repository/com/google/gdata/gdata-core/1.0/gdata-core-1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/repository/com/google/gdata/gdata-spreadsheet/3.0/gdata-spreadsheet-3.0.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: com.google.gdata:gdata-spreadsheet-meta:3.0" />
+      <element id="library" level="project" name="Maven: com.google.gdata:gdata-core:1.0" />
+      <element id="library" level="project" name="Maven: com.google.gdata:gdata-spreadsheet:3.0" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-library/1.1/hamcrest-library-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/junit/junit/4.6/junit-4.6.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: com.google.gdata:gdata-sites:2.0" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/repository/com/google/gdata/gdata-spreadsheet-meta/3.0/gdata-spreadsheet-meta-3.0.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: com.google.gdata:gdata-sites-meta:2.0" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.1/commons-lang-2.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/collections/google-collections/1.0-rc2/google-collections-1.0-rc2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/repository/jtidy/jtidy/r820/jtidy-r820.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/joda-time/joda-time/1.6/joda-time-1.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/objenesis/objenesis/1.0/objenesis-1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jmock/jmock-legacy/2.5.1/jmock-legacy-2.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/args4j/args4j/2.0.12/args4j-2.0.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/repository/com/google/gdata/gdata-client-meta/1.0/gdata-client-meta-1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jmock/jmock-junit4/2.5.1/jmock-junit4-2.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/repository/com/google/gdata/gdata-media/1.0/gdata-media-1.0.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: jtidy:jtidy:r820" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/junit/junit-dep/4.4/junit-dep-4.4.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: com.google.gdata:gdata-client:1.0" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/repository/com/google/gdata/gdata-sites-meta/2.0/gdata-sites-meta-2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jmock/jmock/2.5.1/jmock-2.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/activation/activation/1.1/activation-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: com.google.gdata:gdata-client-meta:1.0" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/repository/com/google/gdata/gdata-sites/2.0/gdata-sites-2.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
